@@ -23,29 +23,28 @@ header {
 
 body{
     background-color: rgba(207, 83, 211, 0.664);
+
 }
 
 
 #container{
     display: grid;
-    box-sizing: border-box;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    padding: 0;
-    margin: 0;
+    box-sizing: border-box;
+    top: 41%;
+    left: 51%;
+    width: 500px;
+    height: 500px;
     transform: translate(-50%, -50%);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    border: solid;
+    border: solid 4px;
 }
 
 
 .etchitem{
     background-color: rgba(246, 230, 247, 0.76);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: .6rem ;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.1s ease 0.2s, transform 0.1s ease;
 }
 
