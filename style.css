@@ -41,6 +41,18 @@ body{
     border: solid 4px;
 }
 
+.btn{
+    display: grid;
+    position: fixed;
+    background-color: rgba(246, 230, 247, 0.76);
+    top: 70%;
+    left: 65%;
+    height: 30px;
+    width: 120px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
 
 .etchitem{
     background-color: rgba(246, 230, 247, 0.76);

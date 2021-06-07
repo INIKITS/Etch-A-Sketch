@@ -13,18 +13,27 @@ clrbutton.addEventListener('click', function(){
   })
 })
 
+var userNum = document.createElement("INPUT");
+userNum.setAttribute("type", "text");
+userNum.setAttribute("value", "Enter a number 1-100.");
+document.body.appendChild(userNum);
+var submit = document.createElement("INPUT");
+submit.setAttribute("type", "submit");
+document.body.appendChild(submit)
 
-function makeRows(rows, cols) {
+document.body.appendChild(submit);
+
+function makeRows(rows) {
   box.style.setProperty('--grid-rows', rows);
-  box.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
+  box.style.setProperty('--grid-cols', rows);
+  for (c = 0; c < (rows * rows); c++) {
     let cell = document.createElement("div");
     box.appendChild(cell).className = "etchitem";
   };
 };
 
 
-makeRows(32, 32);
+makeRows(32);
 
 
 document.querySelectorAll('.etchitem').forEach(item => {
