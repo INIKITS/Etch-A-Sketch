@@ -1,0 +1,1 @@
+This is a project from The Odin Project making an etch-a-sketch using DOM elements. 
