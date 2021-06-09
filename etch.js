@@ -27,7 +27,6 @@ rainbtn.innerHTML = 'Rainbow';
 document.body.appendChild(rainbtn);
 rainbtn.addEventListener('click', function(){
   console.log('Rainbow button!')
-  var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
   clearTable()
   changeColor('rainbow')
 })
@@ -44,9 +43,11 @@ gradient.addEventListener('click', function(){
 
 var userNum = document.createElement("INPUT");
 userNum.className = 'userNum'
-userNum.setAttribute("type", "text");
+userNum.setAttribute("type", "number");
+userNum.setAttribute("min", 0)
+userNum.setAttribute("max", 30)
 userNum.setAttribute("value", "");
-userNum.setAttribute("placeholder", "Enter a number 1-30");
+userNum.setAttribute("placeholder", "Enter a number to change the grid");
 
 document.body.appendChild(userNum);
 
@@ -64,7 +65,6 @@ submit.addEventListener('click', function(){
 function clearTable(){
   document.querySelectorAll('.etchitem').forEach(item => {
   item.style.backgroundColor = 'rgba(246, 230, 247, 0.76)';
-  
   })
 }
 
@@ -78,18 +78,18 @@ function makeRows(rows) {
 };
 
 function setTable(newTable) {
-      document.querySelectorAll('.etchitem').forEach(item => {
-      item.style.backgroundColor = 'rgba(246, 230, 247, 0.76)';
-    })
-    makeRows(newTable);
+  document.querySelectorAll('.etchitem').forEach(item => {
+    item.style.backgroundColor = 'rgba(246, 230, 247, 0.76)';
+  })
+  makeRows(newTable);
 }
 
 function changeColor(btn) {
   document.querySelectorAll('.etchitem').forEach(item => {
-    var x = 160;
+    var rgbvalue = 160;
     clrbutton.addEventListener('click', function(){
-      x = 160;
-  })
+      rgbvalue = 160;
+    })
     item.addEventListener('mouseover', function() {
       console.log(item);
       switch (btn){
@@ -104,9 +104,8 @@ function changeColor(btn) {
           break;
         case 'gradient': 
           console.log('gradient')
-          item.style.backgroundColor = "rgb(" + x + " " + x + " " + x +")";
-          x = x - 16;
-          console.log(x)
+          item.style.backgroundColor = "rgb(" + rgbvalue + " " + rgbvalue + " " + rgbvalue +")";
+          rgbvalue = rgbvalue - 16;
           break;
         default: 
           console.log('default')
@@ -116,9 +115,7 @@ function changeColor(btn) {
   })
 }
 
-
 makeRows(32);
-
 
 document.querySelectorAll('.etchitem').forEach(item => {
   item.addEventListener('mouseover', function() {
