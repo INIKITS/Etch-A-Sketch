@@ -29,7 +29,7 @@ rainbtn.addEventListener('click', function(){
   console.log('Rainbow button!')
   var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
   clearTable()
-  changeColor(randomColor)
+  changeColor('rainbow')
 })
 
 let gradient = document.createElement("BUTTON");
@@ -38,6 +38,8 @@ gradient.className = 'gradient';
 document.body.appendChild(gradient);
 gradient.addEventListener('click', function(){
   console.log('Gradient button!')
+  clearTable()
+  changeColor('gradient')
 })
 
 var userNum = document.createElement("INPUT");
@@ -83,9 +85,30 @@ function setTable(newTable) {
 
 function changeColor(btn) {
   document.querySelectorAll('.etchitem').forEach(item => {
+    var x = 160;
     item.addEventListener('mouseover', function() {
       console.log(item);
-      item.style.backgroundColor = btn;
+      switch (btn){
+        case 'black':
+          console.log('black')
+          item.style.backgroundColor = 'black';
+          break;
+        case 'rainbow':
+          console.log('rainbow')
+          var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+          item.style.backgroundColor = randomColor;
+          break;
+        case 'gradient': 
+          
+          console.log('gradient')
+          item.style.backgroundColor = "rgb(" + x + " " + x + " " + x +")";
+          x = x - 16;
+          console.log(x)
+          break;
+        default: 
+          console.log('default')
+          item.style.backgroundColor = 'black';
+      }
     })
   })
 }
