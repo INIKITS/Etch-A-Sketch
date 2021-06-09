@@ -64,6 +64,7 @@ submit.addEventListener('click', function(){
 function clearTable(){
   document.querySelectorAll('.etchitem').forEach(item => {
   item.style.backgroundColor = 'rgba(246, 230, 247, 0.76)';
+  
   })
 }
 
@@ -86,6 +87,9 @@ function setTable(newTable) {
 function changeColor(btn) {
   document.querySelectorAll('.etchitem').forEach(item => {
     var x = 160;
+    clrbutton.addEventListener('click', function(){
+      x = 160;
+  })
     item.addEventListener('mouseover', function() {
       console.log(item);
       switch (btn){
@@ -99,7 +103,6 @@ function changeColor(btn) {
           item.style.backgroundColor = randomColor;
           break;
         case 'gradient': 
-          
           console.log('gradient')
           item.style.backgroundColor = "rgb(" + x + " " + x + " " + x +")";
           x = x - 16;
