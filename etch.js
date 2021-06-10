@@ -1,7 +1,7 @@
 let box = document.getElementById('container');
 
 var clrbutton = document.createElement("BUTTON");
-clrbutton.className = 'btn';
+clrbutton.className = 'clrbtn';
 clrbutton.innerHTML = "Clear";
 document.body.appendChild(clrbutton);
 clrbutton.addEventListener('click', function(){
@@ -22,7 +22,7 @@ blackbtn.addEventListener('click', function(){
 })
 
 let rainbtn = document.createElement("BUTTON");
-rainbtn.className = 'Rainbow';
+rainbtn.className = 'rainbtn';
 rainbtn.innerHTML = 'Rainbow';
 document.body.appendChild(rainbtn);
 rainbtn.addEventListener('click', function(){
@@ -32,8 +32,8 @@ rainbtn.addEventListener('click', function(){
 })
 
 let gradient = document.createElement("BUTTON");
+gradient.className = 'gradientbtn';
 gradient.innerHTML = 'Gradient';
-gradient.className = 'gradient';
 document.body.appendChild(gradient);
 gradient.addEventListener('click', function(){
   console.log('Gradient button!')
@@ -42,24 +42,36 @@ gradient.addEventListener('click', function(){
 })
 
 var userNum = document.createElement("INPUT");
-userNum.className = 'userNum'
+userNum.className = 'usernum'
 userNum.setAttribute("type", "number");
-userNum.setAttribute("min", 0)
+userNum.setAttribute("min", 1)
 userNum.setAttribute("max", 30)
 userNum.setAttribute("value", "");
-userNum.setAttribute("placeholder", "Enter a number to change the grid");
+userNum.setAttribute("placeholder", "Enter a number between 1 and 30");
+
 
 document.body.appendChild(userNum);
 
+
+// input bar for making new grid size //
 var submit = document.createElement("INPUT");
 submit.className = 'submit'
 submit.setAttribute("type", "submit");
 document.body.appendChild(submit);
 submit.addEventListener('click', function(){
   console.log('clicky submit');
-  var newTable = document.querySelector('.userNum').value;
+  var newTable = document.querySelector('.usernum').value; 
   console.log(newTable);
-  setTable(newTable);
+
+  // handle exception for invalid input // 
+  if (newTable <= 0 || newTable > 30){ 
+    alert('Invalid input, please choose a number from 1 to 30');
+    newTable = 30;
+  }
+  
+  clearTable();
+  makeRows(newTable);
+  document.querySelector('.usernum').value ='';
 });
 
 function clearTable(){
@@ -68,6 +80,7 @@ function clearTable(){
   })
 }
 
+// Grid size setup//
 function makeRows(rows) {
   box.style.setProperty('--grid-rows', rows);
   box.style.setProperty('--grid-cols', rows);
@@ -76,13 +89,6 @@ function makeRows(rows) {
     box.appendChild(cell).className = "etchitem";
   };
 };
-
-function setTable(newTable) {
-  document.querySelectorAll('.etchitem').forEach(item => {
-    item.style.backgroundColor = 'rgba(246, 230, 247, 0.76)';
-  })
-  makeRows(newTable);
-}
 
 function changeColor(btn) {
   document.querySelectorAll('.etchitem').forEach(item => {
@@ -117,6 +123,7 @@ function changeColor(btn) {
 
 makeRows(32);
 
+// default rainbow cursor color //
 document.querySelectorAll('.etchitem').forEach(item => {
   item.addEventListener('mouseover', function() {
     console.log(item);

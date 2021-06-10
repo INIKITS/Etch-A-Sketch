@@ -41,15 +41,85 @@ body{
     border: solid 4px;
 }
 
-.btn{
+.clrbtn{
+    display: grid;
+    position: fixed;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    top: 50%;
+    left: 20%;
+    height: 30px;
+    width: 189px;
+    font-size: 20px;
+}
+.usernum{
     display: grid;
     position: fixed;
     background-color: rgba(246, 230, 247, 0.76);
-    top: 70%;
-    left: 65%;
+    top: 30%;
+    left: 20%;
+    height: 30px;
+    width: 180px;
+    font-size: 11px;
+}
+
+.submit{
+    display: grid;
+    position: fixed;
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+    border-radius: 5px;
+    top: 34%;
+    left: 20%;
+    height: 30px;
+    width: 189px;
+    font-size: 20px;
+
+}
+
+
+.blackbtn{
+    display: grid;
+    position: fixed;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    top: 76%;
+    left: 37%;
     height: 30px;
     width: 120px;
-    border-radius: 10px;
+    font-size: 20px;
+}
+
+.rainbtn{
+    display: grid;
+    position: fixed;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    top: 76%;
+    left: 47%;
+    height: 30px;
+    width: 120px;
+    font-size: 20px;
+}
+
+.gradientbtn{
+    display: grid;
+    position: fixed;
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    top: 76%;
+    left: 57%;
+    height: 30px;
+    width: 120px;
     font-size: 20px;
 }
 
